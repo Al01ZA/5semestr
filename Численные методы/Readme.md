@@ -4,3 +4,5 @@
 - Exel/Python/Matplotlib
 
 https://docs.google.com/spreadsheets/d/1VtBf1AX84q3Sy-XLw-_StKb4Hv9QeSknuzoafgxwcyc/edit?usp=sharing
+
+https://replit.com/@Al01ZA/ChisliennyieMietody#main.py

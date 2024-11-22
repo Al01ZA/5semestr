@@ -1,0 +1,52 @@
+- Импорт нужных библиотек:
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
+Здесь мы импортируем библиотеки, необходимые для работы с графическим интерфейсом.
+
+- Создание класса приложения:
+class MyApp(QMainWindow):
+Мы определяем класс MyApp, который наследует от QMainWindow. Это основной класс для любого приложения с графическим интерфейсом в PyQt5.
+
+- Инициализация:
+    def init(self):
+        super().init()
+
+        self.initUI()
+Это конструктор класса. Он вызывает родительский конструктор и запускает инициализацию пользовательского интерфейса. Вместо init должно быть __init__. Это опечатка.
+
+- Настройка пользовательского интерфейса:
+    def initUI(self):
+        self.setWindowTitle('Пример приложения на PyQt5')
+        self.setGeometry(100, 100, 400, 300)
+Здесь мы устанавливаем заголовок окна и его размеры. Метод setGeometry задает параметры: позицию (100, 100) и размеры (400, 300).
+
+- Создание макета и элементов управления:
+        layout = QVBoxLayout()
+
+        self.label = QLabel('Нажмите кнопку:', self)
+        layout.addWidget(self.label)
+
+        self.button = QPushButton('Нажми меня', self)
+        self.button.clicked.connect(self.on_click)
+        layout.addWidget(self.button)
+Создается вертикальный макет QVBoxLayout, добавляется метка (QLabel) и кнопка (QPushButton). При нажатии на кнопку соединяется сигнал clicked с методом on_click.
+
+- Контейнер для макета:
+        container = QWidget()
+        container.setLayout(layout)
+        self.setCentralWidget(container)
+Создается виджет QWidget, устанавливается в него макет и он задается как центральный виджет для основного окна.
+
+- Обработка нажатия кнопки:
+    def on_click(self):
+        self.label.setText('Кнопка нажата!')
+Когда кнопка нажата, текст на метке обновляется.
+
+- Запуск приложения:
+if name == 'main':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    ex.show()
+    sys.exit(app.exec_())
+Здесь приложение запускается, если скрипт выполняется как основная программа. Обратите внимание, что вместо name должно быть __name__ и вместо main должно быть '__main__'
+Эьот код создает простое окно, в котором есть метка и кнопка. При нажатии на кнопку меняется текст метки.
